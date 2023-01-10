@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
 
 const AddUser = (props) => {
-    const [enteredUsername, setEnteredUsername] = React.useState('');
-    const [enteredAge, setEnteredAge] = React.useState('');
+    const [enteredUsername, setEnteredUsername] = useState('');
+    const [enteredAge, setEnteredAge] = useState('');
 
     const addUserHandler = (event) => {
         event.preventDefault(); // Prevents the page from reloading when the form is submitted (default behavior)
@@ -15,7 +15,7 @@ const AddUser = (props) => {
         if (+enteredAge < 1) {
             return;
         }
-        console.log(enteredUsername, enteredAge);
+        props.onAddUser(enteredUsername, enteredAge); // This is how you can pass data from a child component to a parent component (using props)
         setEnteredUsername('');
         setEnteredAge('');
     }
