@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import AddUser from "./components/Users/AddUser";
 import UsersList from "./components/Users/UsersList";
 
@@ -10,10 +10,10 @@ function App() {
         }); // This is how you can add a new item to a list of items in state (using the spread operator)
     }
   return (
-    <div>
+    <Fragment>
         <AddUser onAddUser={addUserHandler} />
         <UsersList users={usersList} />
-    </div>
+    </Fragment>
   );
 }
 export default App;
